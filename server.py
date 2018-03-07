@@ -16,7 +16,6 @@ Request Parser
 # socket.accept() returns (conn, address)
 # This function accepts conn as argument
 def iter_lines(sock: socket.socket, bufsize: int = 16_834) -> typing.Generator[bytes, None, bytes]:
-	# ?????? what's up with the argument
 	buff = b""
 	while True:
 		data = sock.recv(bufsize)
@@ -35,13 +34,13 @@ def iter_lines(sock: socket.socket, bufsize: int = 16_834) -> typing.Generator[b
 """
 Request abstraction
 """
-class Request():
+class Request(typing.NamedTuple):
 	method: str
 	path: str
 	headers: typing.Mapping[str, str]
 
 	@classmethod
-	def from_socket(cls, sock: socket.socket) -> "Request": # ????? what's cls doing
+	def from_socket(cls, sock: socket.socket) -> "Request":
 		lines = iter_lines(sock)
 
 		try:
