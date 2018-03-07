@@ -33,23 +33,19 @@
 	- [Linux man pages](http://man7.org/linux/man-pages/man7/socket.7.html)
 	- [The Single UNIX Specification](http://pubs.opengroup.org/onlinepubs/7908799/xns/getsockopt.html)
 	- [What exactly does SO_REUSEADDR do?](http://www.unixguide.net/network/socketfaq/4.5.shtml)
-- **`with` statement**
+- [**`with` statement**](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)
 	- The with statement is used to wrap the execution of a block with methods defined by a context manager.
 	- Used when working with unmanaged resources (like file streams).
 	- It allows you to ensure that a resource is "cleaned up" when the code that uses it finishes running, even if exceptions are thrown.
 	- [Stackoverflow](https://stackoverflow.com/questions/1369526/what-is-the-python-keyword-with-used-for)
-	- [python docs](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)
-- **`typing` library**
-	- [python docs](https://docs.python.org/3/library/typing.html)
-- **Generators**
+- [**`typing` library**](https://docs.python.org/3/library/typing.html)
+- [**Generators**](https://wiki.python.org/moin/Generators)
 	- [*class* `typing.Generator(Iterator[T_co], Generic[T_co, T_contra, V_co])`](https://docs.python.org/3/library/typing.html#typing.Generator)
 	- A generator can be annotated by the generic type `Generator[YieldType, SendType, ReturnType]`. 
-	- [python wiki](https://wiki.python.org/moin/Generators)
 	- [Jeff Knupp - Improve Your Python: 'yield' and Generators Explained](https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/)
 	- [freeCodeCamp: How — and why — you should use Python Generators](https://medium.freecodecamp.org/how-and-why-you-should-use-python-generators-f6fb56650888)
 	- [Stack Abuse: Python Generators](http://stackabuse.com/python-generators/)
-- **Function annotations**
-	- [python docs](https://docs.python.org/3/tutorial/controlflow.html#function-annotations)
+- [**Function annotations**](https://docs.python.org/3/tutorial/controlflow.html#function-annotations)
 	- [Stackoverflow](https://stackoverflow.com/questions/14379753/what-does-mean-in-python-function-definitions)
 	- [PEP 3107 specification](https://www.python.org/dev/peps/pep-3107/)
 	- Completely optional metadata information about the types used by user-defined functions.
@@ -60,3 +56,25 @@
 - **`bytes.index()`**
 	- Search in byte string
 	- [Stackoverflow](https://stackoverflow.com/questions/10923602/python-3-bytes-index-better-way)
+- [**`collections.namedtuple()`**](https://docs.python.org/3/library/collections.html#collections.namedtuple)
+	- factory function for creating tuple subclasses with named fields
+	- Returns a new tuple subclass named typename. The new subclass is used to create tuple-like objects that have fields accessible by attribute lookup as well as being indexable and iterable.
+- [**`typing.NamedTuple()`**](https://docs.python.org/3/library/typing.html#typing.NamedTuple)
+	- typed version of `namedtuple`
+- [**`typing.Mapping()`**](https://docs.python.org/3/glossary.html#term-mapping)
+	- A generic version of `collections.abc.Mapping`, supporting arbitrary key lookups.
+- [**`@classmethod`**](https://docs.python.org/3/library/functions.html#classmethod)
+	- [Stack Abuse](http://stackabuse.com/pythons-classmethod-and-staticmethod-explained/)
+	- [Stackoverflow](https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner)
+	- a decorator that transforms a method into a class method
+	- [decorator](https://docs.python.org/3/glossary.html#term-decorator) = a function returning another function, usually applied as a function transformation using the `@wrapper` syntax.
+- [**`next()`**](https://docs.python.org/3/library/functions.html#next)
+- **`f"Malformed request line '{request_line!r}'."`**
+	- `!r` computes the “official” string representation of an object.
+	- [Stackoverflow](https://stackoverflow.com/questions/38418070/what-does-r-do-in-str-and-repr)
+	- [`repr()`](https://docs.python.org/3/library/functions.html#repr)
+	- [`object.__repr__(self)`](https://docs.python.org/3/reference/datamodel.html#object.__repr__)
+- [**`str.partition(sep)`**](https://docs.python.org/3/library/stdtypes.html#str.partition)
+	- Split the string at the first occurrence of _sep_, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator. If the separator is not found, return a 3-tuple containing the string itself, followed by two empty strings.
+- [**`str.lstrip([chars])`**](https://docs.python.org/3/library/stdtypes.html#str.lstrip)
+	- Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped.

@@ -32,6 +32,35 @@ def iter_lines(sock: socket.socket, bufsize: int = 16_834) -> typing.Generator[b
 				yield line
 			except IndexError:
 				break
+"""
+Request abstraction
+"""
+class Request():
+	method: str
+	path: str
+	headers: typing.Mapping[str, str]
+
+	@classmethod
+	def from_socket(cls, sock: socket.socket) -> "Request": # ????? what's cls doing
+		lines = iter_lines(sock)
+
+		try:
+			request_line = next(lines).decode("ascii")
+		except StopIteration:
+			raise ValueError("Request line missing.")
+		try:
+			method, path, _ = request_line.split(" ")
+		except ValueError:
+			raise ValueError(f"Malformed request line '{request_line!r}'.")
+
+		headers = {}
+		for line in lines:
+			try:
+				name, _, value = line.decode("ascii").partition(":")
+				headers[name.lower()] = value.lstrip()
+			except ValueError:
+				raise ValueError(f"Malformed header line '{line!r}'.")
+		return cls(method=method.upper(), path=path, headers=headers) # ???? what's going on here
 
 """
 Simple Server
@@ -53,9 +82,10 @@ with socket.socket() as server_sock:
 	# If you try to run this code now, it’ll print to standard out that it’s listening on 127.0.0.1:9000 and then exit. 
 	# In order to actually process incoming connections, we need to call the accept method on our socket. 
 	# Doing so will block the process until a client connects to our server.
-	client_sock, client_addr = server_sock.accept()
-	print(f"New connection from {client_addr}.")
-	with client_sock: # ??????? what's the difference between using and not using with statement
-		for line in iter_lines(client_sock):
-			print(line) # Print out requests line by line
-		client_sock.sendall(RESPONSE)
+	while True:
+		client_sock, client_addr = server_sock.accept()
+		print(f"Received connection from {client_addr}...")
+		with client_sock: # ??????? what's the difference between using and not using with statement
+			request = Request.from_socket(client_sock)
+			print(request)
+			client_sock.sendall(RESPONSE)
