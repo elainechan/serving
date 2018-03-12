@@ -13,6 +13,8 @@
 - [Node: Anatomy of an HTTP Transaction](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
 - [Python Socket Programming HOWTO](https://docs.python.org/3.6/howto/sockets.html)
 - [Python `socketserver` module](https://docs.python.org/3/library/socketserver.html#module-socketserver)
+- [Python `http.server` module](https://docs.python.org/3.6/library/http.server.html#module-http.server)
+- [Python `ssl` (Secure Sockets Layer) module](https://docs.python.org/3/library/ssl.html#module-ssl)
 - [Unix socket tutorial](https://www.tutorialspoint.com/unix_sockets/index.htm)
 - [unix domain socket - AF_INET vs AF_UNIX](https://stackoverflow.com/questions/21032562/example-to-explain-unix-domain-socket-af-inet-vs-af-unix)
 - [Buffer definition](http://www.linfo.org/buffer.html)
