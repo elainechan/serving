@@ -1,17 +1,24 @@
 # File Server From Scratch
 
+- `socket` version
+- `http.server` version
+
 ## Inspiration
+- [AOSA: A Simple Server](http://aosabook.org/en/500L/a-simple-web-server.html)
 - [WEB APPLICATION FROM SCRATCH, PART I](https://defn.io/2018/02/25/web-app-from-scratch-01/)
 - [Repo: A web app from scratch](https://github.com/Bogdanp/web-app-from-scratch/tree/part-01)
 - [Python Network Programming](https://www.tutorialspoint.com/python/python_networking.htm)
 
 ## References
+- [Node: Anatomy of an HTTP Transaction](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
+- [Python Socket Programming HOWTO](https://docs.python.org/3.6/howto/sockets.html)
+- [Python `socketserver` module](https://docs.python.org/3/library/socketserver.html#module-socketserver)
 - [Unix socket tutorial](https://www.tutorialspoint.com/unix_sockets/index.htm)
 - [unix domain socket - AF_INET vs AF_UNIX](https://stackoverflow.com/questions/21032562/example-to-explain-unix-domain-socket-af-inet-vs-af-unix)
 - [Buffer definition](http://www.linfo.org/buffer.html)
 - [Python Buffer Protocol](https://docs.python.org/3/c-api/buffer.html#bufferobjects)
 
-## Notes
+### Notes
 - `memoryview`: show memory location
 ```python
 >>> v = memoryview(b'abcd')
@@ -78,3 +85,10 @@
 	- Split the string at the first occurrence of _sep_, and return a 3-tuple containing the part before the separator, the separator itself, and the part after the separator. If the separator is not found, return a 3-tuple containing the string itself, followed by two empty strings.
 - [**`str.lstrip([chars])`**](https://docs.python.org/3/library/stdtypes.html#str.lstrip)
 	- Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix; rather, all combinations of its values are stripped.
+- [**`fileno()`**](https://docs.python.org/3.6/library/io.html#io.IOBase.fileno)
+	- Return the underlying file descriptor (an integer) of the stream if it exists.
+	- An OSError is raised if the IO object does not use a file descriptor.
+- [**`mimetypes.guess_type(url, strict=True)`**](https://docs.python.org/3.6/library/mimetypes.html#mimetypes.guess_type)	- Guess the type of a file based on its filename or URL, given by url.
+- [**`os.fstat()`**](https://docs.python.org/3/library/os.html#os.fstat)
+	- Get the status of the file descriptor fd. Return a `stat_result` object.
+
